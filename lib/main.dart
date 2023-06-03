@@ -87,37 +87,13 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           var data0 = DateFormat('yyyy-MM-dd').format(DateTime.now());
-          print(data0);
           var data1 = DateFormat('HH:mm').format(DateTime.now());
-          print(data1);
           var data2 = DateFormat.Hms().format(DateTime.now());
-          print(data2);
-          print('${data0}T$data1');
-          print(DateTime.now());
-          print('==================');
-          //print(data0);
-          //print(DateFormat('yyyy-MM-dd').format(DateTime.now()));
-          print(DateFormat('dd/MM/yyyy').format(DateTime.now()));
-          //print(DateFormat('HH:mm:ss').parse(hora.text));
-          print('object');
-          //print(DateFormat('dd/MM/yyyy').parse(newdata.text));
-
-          print(DateFormat('yyyy/MM/dd').parse(newdata.text));
-          print(DateFormat('yyyy/MM/dd').parse('2020/04/03'));
-          print('========= PEGANDO O CONTROLLER =========');
-          print(data.text.length);
-          print(hora.text.length);
           var dataConvertida = DateFormat('dd/MM/yyyy').parse(newdata.text);
           var datafinal = DateFormat('yyyy-MM-dd').format(dataConvertida);
           var horafinal = DateFormat.Hms().format(DateTime.now());
           //print(DateFormat('dd/MM/yyyy').parse(data.text));
           //print(DateFormat('yyyy-MM-dd').parse(data.text));
-          print('==========INPUT ORIGINAL========');
-          print(newdata.text);
-          print(data.text);
-          print(hora.text);
-          print('${dataConvertida}T${hora.text}:00');
-          print('${datafinal}T${hora.text}:00');
         },
       ),
     );
@@ -162,13 +138,11 @@ class NewDataInputFormatter extends TextInputFormatter {
       case 1:
         final dia = int.parse(newValue.text.substring(0, 1));
         if (dia >= 4) return oldValue;
-        print(newValue.text.substring(0, 1));
         break;
 
       case 2:
         final dia = int.parse(newValue.text.substring(0, 2));
         if (dia >= 32 || dia < 01) return oldValue;
-        print(newValue.text.substring(0, 2));
 
         break;
 
@@ -177,7 +151,6 @@ class NewDataInputFormatter extends TextInputFormatter {
         if (mes >= 2) return oldValue;
         newText.write('${newValue.text.substring(0, substrIndex = 2)}/');
         if (newValue.selection.end >= 2) selectionIndex++;
-        print(newValue.text.substring(2, 3));
 
         break;
 
@@ -186,7 +159,6 @@ class NewDataInputFormatter extends TextInputFormatter {
         if (mes >= 13 || mes < 01) return oldValue;
         newText.write('${newValue.text.substring(0, substrIndex = 2)}/');
         if (newValue.selection.end >= 2) selectionIndex++;
-        print(newValue.text.substring(2, 4));
 
         break;
 
